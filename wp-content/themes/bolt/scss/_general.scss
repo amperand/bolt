@@ -1,0 +1,42 @@
+$blue: rgba(28,48,91,1);
+$blue-hover:rgba(28,48,91,0.6);
+$light-blue:rgba(19,147,207,1);
+$light-blue-hover:rgba(19,147,207,0.7);
+$gray:rgba(101,101,101,1);
+
+html, body {height:100%;}
+#page {min-height:100%;}
+#wrap {overflow:auto;padding-bottom:280px;}
+#colophon {position:relative;padding:5em 0; margin-top:-280px;min-height:280px;clear:both;background:$blue;
+  -webkit-box-shadow:inset 2px 0px 19px 0px #00022F;
+   box-shadow:inset 2px 0px 19px 0px #00022F;color:#fff;
+    a {color:#fff;}
+}
+body:before {
+	content:"";height:100%;float:left;width:0;
+	margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+html {
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	margin-top:0px !important;
+}
+#primary {padding-bottom:7em;}
+* {-moz-outline:0 none;
+outline:0 none;margin:0;}
+a {-webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color:$light-blue;
+  &:hover {color:$light-blue-hover;}
+}
+ [class*="column"]+[class*="column"]:last-child {
+  float: left;
+}
+
+/* FONTS */
+$lora: 'Lora', 'Times New Roman', Times, serif;
+$pt-sans:'PT Sans', Helvetica, Arial, sans-serif;
+
+/* END FONTS */

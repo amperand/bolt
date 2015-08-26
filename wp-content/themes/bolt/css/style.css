@@ -1,0 +1,107 @@
+html, body {
+  height: 100%; }
+
+#page {
+  min-height: 100%; }
+
+#wrap {
+  overflow: auto;
+  padding-bottom: 280px; }
+
+#colophon {
+  position: relative;
+  padding: 5em 0;
+  margin-top: -280px;
+  min-height: 280px;
+  clear: both;
+  background: #1c305b;
+  -webkit-box-shadow: inset 2px 0px 19px 0px #00022F;
+  box-shadow: inset 2px 0px 19px 0px #00022F;
+  color: #fff; }
+  #colophon a {
+    color: #fff; }
+
+body:before {
+  content: "";
+  height: 100%;
+  float: left;
+  width: 0;
+  margin-top: -32767px;
+  /* thank you Erik J - negate effect of float*/ }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 0px !important; }
+
+#primary {
+  padding-bottom: 7em; }
+
+* {
+  -moz-outline: 0 none;
+  outline: 0 none;
+  margin: 0; }
+
+a {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #1393cf; }
+  a:hover {
+    color: rgba(19, 147, 207, 0.7); }
+
+[class*="column"] + [class*="column"]:last-child {
+  float: left; }
+
+/* FONTS */
+/* END FONTS */
+/* HEADER */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  position: absolute !important;
+  height: 1px;
+  width: 1px; }
+
+.site-title h1 {
+  text-indent: -9999px;
+  font-size: 0px;
+  margin: 0;
+  border-bottom: none; }
+
+.menu-toggle {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 0.9375em;
+  top: 0.5em; }
+  .menu-toggle img {
+    width: 100%;
+    max-width: 22px;
+    width: 22px;
+    height: 16px; }
+
+.nav-menu ul {
+  margin: 0; }
+.nav-menu li {
+  list-style: none;
+  display: inline; }
+
+#mobile-navigation {
+  padding-left: 0;
+  padding-right: 0; }
+  #mobile-navigation .nav-menu {
+    display: none;
+    margin: 0;
+    padding: 0; }
+    #mobile-navigation .nav-menu li {
+      margin: 0;
+      display: block; }
+      #mobile-navigation .nav-menu li a {
+        display: block;
+        padding: 1em 0;
+        text-align: center;
+        background: #ccc; }
+
+/* END HEADER */
