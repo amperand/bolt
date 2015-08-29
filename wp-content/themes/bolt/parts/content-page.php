@@ -1,36 +1,16 @@
 <header class="entry-header">
-	<?php 
-	if($post->post_parent){
-		$parentTitle = get_the_title($post->post_parent);
-		$parentLink = get_permalink($post->post_parent); ?>
-		<nav id="breadcrumbs">
-			<ul>
-				<li><a href="<?= site_url();?>">Home</a></li>
-				<li><a href="<?php echo $parentLink;?>"><?php echo $parentTitle;?></a></li>
-				<li><a href="#"><?php the_title();?></a></li>
-			</ul>
-		</nav>
-	<?php } else { ?>
-	  <nav id="breadcrumbs">
-	  	<ul>
-		  	<li><a href="<?php echo site_url();?>">Home</a></li>
-		  	<li><a href="#"><?php the_title();?></a></li>
-		</ul>
-	  </nav>
-	<?php }	?>
 	<h1 class="page-title"><?php the_title();?></h1>
+	<?php $subtitle = get_field('sub-title');
+	if ($subtitle) {
+		echo '<p>'.$subtitle.'</p>';
+	} ?>
 </header>
-<?php $featuredImage = wp_get_attachment_image(get_field('featured_image'), 'featuredImage');
-if($featuredImage) {
-	echo $featuredImage;
-} 
-$subtitle = get_field('sub_title');
-if ($subtitle) {
-	echo '<p class="subtitle">'.$subtitle.'</p>';
-}
-?>
 <div class="entry-content">
-	<?php the_content();
+	<?php $standOutText = get_field('stand_out_text_header');
+	if ($standOutText) {
+		echo '<p class="callout">'.$standOutText.'</p>';
+	} 
+	the_content();
 	if( have_rows('page_content') ):
 	    while ( have_rows('page_content') ) : the_row();			
 	        if( get_row_layout() == 'content' ):
@@ -38,7 +18,13 @@ if ($subtitle) {
 	        elseif(get_row_layout() == 'button'):
 	        	$buttonLink = get_sub_field('button_link');
 	        	$buttonText = get_sub_field('button_text');
-	        	echo '<a class="button round" href="'.$buttonLink.'">'.$buttonText.'</a>';
+	        	echo '<a class="button radius" href="'.$buttonLink.'">'.$buttonText.'</a>';
+	        elseif(get_row_layout() == 'add_file'):
+	        	$fileTitle = get_sub_field('title');
+	        	$file = get_sub_field('file_upload');
+	        	$fileDesc = get_sub_field('file_description');
+	        	echo '<article class="file"><h2>'.$fileTitle.'</h2>'.$fileDesc;
+	        	echo '<a class="secondary tiertiary button radius" href="'.$file.'" target="_blank">View '.$fileTitle.'</a></article>';
 	        elseif(get_row_layout() == 'team_members_block'):
 	        	if(have_rows('team_members'))?>
 					<section class="team-members" data-equalizer>
@@ -70,4 +56,58 @@ if ($subtitle) {
 	else :
 	    // no layouts found
 	endif;?>
+	
+	<?php $subPreview = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'post_date', 'sort_order' => 'desc' ) );
+		//$ti = get_title();
+	if($subPreview) { ?>
+		<section id="tab-container">
+			<ul class="tabs vertical show-for-medium-up" data-tab>
+			<?php
+			$x=1;
+			foreach($subPreview as $page) {
+				$ti = get_the_title($page->ID);
+				echo '<li class="tab-title"><a href="#panel'.$x.'">'.$ti.'</a></li>';
+				$x++;
+			}
+			echo '</ul>';
+			$z=1;
+			echo '<div class="tabs-content show-for-medium-up">';
+			foreach($subPreview as $page) {
+				$perma = get_permalink($page->ID);
+				$ti = get_the_title($page->ID);
+				$featuredText = get_field('stand_out_text', $page->ID);
+				$text = get_field('parent_page_preview_text', $page->ID);?>
+				<div id="panel<?php echo $z;?>" class="content">
+					<h2><?php echo $ti;?></h2>
+					<p class="callout"><?php echo $featuredText;?></p>
+					<?php echo $text;?>
+					<a class="secondary tiertiary button radius" href="<?php echo $perma;?>">Learn More</a>
+				</div>
+				<?php $z++;
+			}
+			echo '</div>';
+			
+/*
+			echo '<section class="show-for-small-only" id="pages-preview">';
+			foreach($subPreview as $page) {
+				$featuredImage = wp_get_attachment_image(get_field('featured_image', $page->ID), 'thumbnail');
+				$perma = get_permalink($page->ID);
+				$ti = get_the_title($page->ID);
+				$featuredText = get_field('stand_out_text', $page->ID);
+				$text = get_field('parent_page_preview_text', $page->ID);?>
+				<div class="content preview">
+					<div class="columns small-4"><?php echo $featuredImage;?></div>
+					<div class="columns small-8">
+						<h2><?php echo $ti;?></h2>
+						<p class="callout"><?php echo $featuredText;?></p>
+						<?php echo $text;?>
+						<a class="read-more" href="<?php echo $perma;?>">Learn More</a>
+					</div>
+				<?php
+			}
+			echo '</section>';
+*/
+		
+		echo '</section>';
+	}?>
 </div><!-- .entry-content -->

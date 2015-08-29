@@ -1,4 +1,4 @@
-<div id="content-sidebar" class="content-sidebar widget-area columns medium-3  medium-offset-1" role="complementary">
+<div id="content-sidebar" class="content-sidebar widget-area columns medium-4" role="complementary">
 	<?php $parent = $post->post_parent;
 	if ($parent) {
 		$mySibs = get_pages( array( 'child_of' => $parent, 'sort_column' => 'post_date', 'sort_order' => 'desc' ) );

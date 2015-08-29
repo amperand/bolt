@@ -1,40 +1,20 @@
-<?php
-/**
- * The Template for displaying all single posts
- *
- * @package WordPress
- * @subpackage Twenty_Fourteen
- * @since Twenty Fourteen 1.0
- */
+<?php get_header(); ?>
 
-get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+<div id="main-content" class="main-content">
+	<div id="primary" class="content-area row">
+		<?php $featuredImage = wp_get_attachment_image(get_field('featured_image'), 'featuredImage');
+		if($featuredImage) {
+			echo '<div class="columns large-12">'.$featuredImage.'</div>';
+		}?>
+		<div id="content" class="site-content columns medium-8" role="main">HELLO
 			<?php
-				// Start the Loop.
 				while ( have_posts() ) : the_post();
-
-					/*
-					 * Include the post format-specific template for the content. If you want to
-					 * use this in a child theme, then include a file called called content-___.php
-					 * (where ___ is the post format) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-
-					// Previous/next post navigation.
-					twentyfourteen_post_nav();
-
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
-					}
+					include('parts/content-single.php');
 				endwhile;
 			?>
 		</div><!-- #content -->
+		<?php get_sidebar('content'); ?>
 	</div><!-- #primary -->
+</div><!-- #main-content -->
 
-<?php
-get_sidebar( 'content' );
-get_sidebar();
-get_footer();
+<?php get_footer();

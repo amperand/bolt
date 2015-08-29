@@ -17,7 +17,7 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
-	<link href='http://fonts.googleapis.com/css?family=Lora:400,400italic|PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic%7CRoboto+Condensed:400,700' rel='stylesheet' type='text/css'>
 	<?php wp_head(); ?>
 		<!--[if lt IE 9]>
 		  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
@@ -29,20 +29,25 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php $pageID = $post->ID;
+$chat = get_field('chat_button', $pageID);
+$chatCode = 'http://google.com';
+if ($chat) {
+	$chatCode = $chat;
+}
+?>
 <div id="page" class="hfeed site">
 	<div id="wrap">
 	
 	<header id="masthead" class="site-header" role="banner">
 		<section class="header-main row">
-			<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1><img src="<?php bloginfo('stylesheet_directory');?>/img/bolt-express.png" alt="Bolt Express"></a>
+			<a class="site-title columns medium-3 small-6" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1><img src="<?php bloginfo('stylesheet_directory');?>/img/bolt-express.png" alt="Bolt Express"></a>
 
-			<nav id="primary-navigation" class="site-navigation primary-navigation columns medium-7 hide-for-small-only" role="navigation">
-				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'twentyfourteen' ); ?></a>
-				<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'menu_class' => 'nav-menu', 'menu_id' => 'primary-menu' ) ); ?>
+			<nav id="primary-navigation" class="site-navigation primary-navigation columns medium-9 hide-for-small-only" role="navigation">
+				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', '' ); ?></a>
+				<a class="button radius right" href="<?php echo $chatCode;?>" target="_blank">Chat</a>
+				<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'menu_class' => 'nav-menu right', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav>
-			<div class="search-toggle columns medium-1">
-				<a href="#search-container" class="screen-reader-text" aria-expanded="false" aria-controls="search-container"><?php _e( 'Search',''); ?></a>
-			</div>
 			<button class="menu-toggle hide-for-medium-up"><img src="<?php bloginfo('stylesheet_directory');?>/img/menu-toggle.png" alt="Menu Toggle"/></button>
 		</section>
 		<section class="row">

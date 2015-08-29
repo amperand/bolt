@@ -1,0 +1,84 @@
+.entry-header, .page-header {background:$blue;padding:1em 1.5em;margin:1em 0 2em;border-radius: 3px;background-clip: padding-box;
+	p {color:#fff;font:300 19px/26px $roboto-reg;}
+}
+#main {
+	img {border:1px solid $divide;border-radius:3px;background-clip: padding-box;}
+}
+.home {
+	h3 {color:$blue;font:300 22px/26px $roboto-reg;}
+	.featured {margin-bottom:2em;
+		img {width:100%;margin-bottom:2em;}
+	}
+}
+#primary {
+	img.attachment-featuredImage {width:100%;}
+}
+.entry-content {
+	ul {
+		li {list-style-image:url(../img/bullet.jpg);margin-left:2em;}
+		&.accordion {
+			li {list-style-image:none;margin-left:0;}
+		}
+	}
+}
+#accreditations {margin:2em auto;
+	li {list-style:none;display:inline-block;
+		img {max-width:120px;height:auto;margin:0 1em;border:none;}
+	}
+}
+#pages-preview {overflow:hidden;border-radius:3px;background-clip: padding-box;
+	.preview {border-top:1px solid $divide;padding:1em 0;clear:both;overflow:hidden;
+		p, a {display:inline;}
+		p.callout {display:block;}
+	}
+}
+.grayscale img {
+	-webkit-filter: grayscale(100%);
+	  -webkit-transition: .5s ease-in-out;
+	  -moz-filter: grayscale(100%); 
+	  -moz-transition: .5s ease-in-out;
+	  -o-filter: grayscale(100%); 
+	  -o-transition: .5s ease-in-out;
+	  &:hover {
+		  -webkit-filter: grayscale(0%);
+		  -webkit-transition: .5s ease-in-out;
+		  -moz-filter: grayscale(0%);
+		  -moz-transition: .5s ease-in-out;
+		  -o-filter: grayscale(0%);
+		  -o-transition: .5s ease-in-out;
+		}
+}
+.iframe-contain {
+	clear:both;
+	display:block;
+    position: relative;
+    padding-bottom: 75%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+	iframe {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100% !important;
+	    height: 100% !important;
+	}
+}
+input[type="submit"] {
+    background: $blue url(../img/arrow-btn.png) 50% 50% no-repeat;
+    border: none;
+    width: 100%;-webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+    &:hover {background-color:$blue-hover;}
+}
+.post-excerpt {padding-bottom:2em;margin-bottom:2em;border-bottom:1px solid $divide;overflow:hidden;}
+.pagination {margin:5em 0 3em;border-top:1px solid $divide;border-bottom:1px solid $divide;padding:1em 0 3em;display:block;
+	a {color:$blue;
+		&:hover {color:$light-blue;}
+	}
+}
+
+@media only screen and (min-width:40.0625em) {
+	.entry-header, .page-header {margin:4em 0 2em;}
+}
