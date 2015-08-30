@@ -2,7 +2,7 @@
 	
 function my_custom_login_logo() {
     echo '<style type="text/css">
-        .login h1 a { background-image:url('.get_bloginfo('stylesheet_directory').'/img/custom-login-logo.png) !important;width:203px;height:44px;background-size:203px 44px;padding-left:11px; }
+        .login h1 a { background-image:url('.get_bloginfo('stylesheet_directory').'/img/custom-login-logo.png) !important;width:243px;height:84px;background-size:243px 84px;padding-left:11px; }
     </style>';
 }
 add_action('login_head', 'my_custom_login_logo');
@@ -75,8 +75,8 @@ function sidebar_widgets_init() { //Register the default sidebar
 	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 	
 	if (is_plugin_active('advanced-custom-fields-pro/acf.php')){ //Check to see if ACF is installed
-		 	if (have_rows('sidebars','options')){
-		 		while (have_rows('sidebars','options')):the_row(); //Loop through sidebar fields to generate custom sidebars
+		if (have_rows('sidebars','options')){
+		 	while (have_rows('sidebars','options')):the_row(); //Loop through sidebar fields to generate custom sidebars
 					 $s_name = get_sub_field('sidebar_name','options');
 					 $s_id = str_replace(" ", "-", $s_name); // Replaces spaces in Sidebar Name to dash
 					 $s_id = strtolower($s_id); // Transforms edited Sidebar Name to lowercase
@@ -88,8 +88,8 @@ function sidebar_widgets_init() { //Register the default sidebar
 						 'before_title' => '<h3 class="widget-title">',
 						 'after_title' => '</h3>',
 					 ));
- 				endwhile;
- 			};
+ 			endwhile;
+ 		};
  	}
 }
 add_action( 'widgets_init', 'sidebar_widgets_init' );
@@ -194,22 +194,6 @@ class BigButton extends WP_Widget {
 				}
 				$o++;		
 			endwhile;?>
-			
-			
-			
-<!--
-			<a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
-
-<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Awesome. I have it.</h2>
- <iframe src="https://www11.sylectus.com/V10_anonorderview.asp?mabcode=610&amp;pronum=" frameborder="0" width="100%" height="100%"></iframe>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
--->
-
-
-
-
 		</article>
  	<?php }
 }
