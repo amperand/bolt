@@ -28,18 +28,7 @@ endif; ?>
 					$linktext = get_sub_field('link_text');
 					echo '<section class="columns medium-4 small-12 featured"><a href="'.$link.'" title="'.$title.'">'.$image.'</a><h3>'.$title.'</h3>'.$text.'<a href="'.$link.'" title="'.$title.'" class="read-more">'.$linktext.'</a></section>';
 				endwhile;
-			endif;
-			
-			if(have_rows('accredidations')) {
-			echo '<ul id="accreditations">';
-				while(have_rows('accredidations')):the_row();
-					$logo = wp_get_attachment_image(get_sub_field('logo', 'full'));
-					$link = get_sub_field('link');
-					echo '<li class="grayscale"><a target="_blank" href="'.$link.'">'.$logo.'</li>';
-				endwhile;
-			echo '</ul>';
-			}
-			?>
+			endif;?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 </div><!-- #main-content -->

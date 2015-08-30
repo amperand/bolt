@@ -89,5 +89,5 @@
 		}
 	}
 	
-	 ?>
+?>
 </div><!-- #content-sidebar -->

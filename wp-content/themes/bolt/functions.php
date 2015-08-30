@@ -12,12 +12,12 @@ function wpb_adding_scripts() {
 	wp_register_script('foundation',get_stylesheet_directory_uri().'/js/foundation.min.js',array('jquery'));
 	wp_register_script('equalizer',get_stylesheet_directory_uri().'/js/foundation/foundation.equalizer.js',array('jquery'));
 	wp_register_script('flexslide', get_stylesheet_directory_uri().'/js/jquery.flexslider-min.js', array('jquery'));
-	//wp_register_script('modal',get_stylesheet_directory_uri().'/js/foundation/foundation.reveal.js', array('jquery'));
+	wp_register_script('modal',get_stylesheet_directory_uri().'/js/foundation/foundation.reveal.js', array('jquery'));
 	
 	wp_enqueue_script('foundation');
 	wp_enqueue_script('equalizer');
 	wp_enqueue_script('flexslide');
-	//wp_enqueue_script('modal');
+	wp_enqueue_script('modal');
 	
     wp_register_style('normalize',get_stylesheet_directory_uri().'/css/normalize.css');
     wp_register_style('foundation',get_stylesheet_directory_uri().'/css/foundation.min.css');
@@ -170,21 +170,51 @@ class BigButton extends WP_Widget {
 			if($title) {
 				echo '<h3 class="widget-title">'.$title.'</h3>';
 			}
+			$o=1;
 			while(have_rows('button',$widget_id)):the_row();
+				$modal = get_sub_field('should_this_open_a_modal_window');
 				$linkText = get_sub_field('link_text');
+				$modalStuff = get_sub_field('modal_content');
 				$linkTo = get_sub_field('link_to');	
 				$link = get_sub_field('link');
 				$linkoffsite = get_sub_field('link_offsite');
-				if($linkTo = 'Page on this website') {
-					echo '<a class="button radius secondary" href="'.$link.'">'.$linkText.'</a>';
+				if($modal == "Yes") {
+					echo '<a href="#" data-reveal-id="modal-'.$o.'" class="button radius secondary">'.$linkText.'</a>';
+					echo '<div id="modal-'.$o.'" class="reveal-modal" data-reveal aria-labelledby="modalTitle'.$o.'" aria-hidden="true" role="dialog">';
+					//echo '<h2 id="modalTitle'.$o.'">'.$linkText.'</h2>';
+					echo $modalStuff;
+					echo '<a class="close-reveal-modal" aria-label="Close">&#215;</a>';
+					echo '</div>';
 				} else {
-					echo '<a class="button radius secondary" href="'.$linkoffsite.'" target="_blank">'.$linkText.'</a>';
-				}		
+					if($linkTo = 'Page on this website') {
+						echo '<a class="button radius secondary" href="'.$link.'">'.$linkText.'</a>';
+					} else {
+						echo '<a class="button radius secondary" href="'.$linkoffsite.'" target="_blank">'.$linkText.'</a>';
+					}
+				}
+				$o++;		
 			endwhile;?>
+			
+			
+			
+<!--
+			<a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Awesome. I have it.</h2>
+ <iframe src="https://www11.sylectus.com/V10_anonorderview.asp?mabcode=610&amp;pronum=" frameborder="0" width="100%" height="100%"></iframe>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+-->
+
+
+
+
 		</article>
  	<?php }
 }
 register_widget("BigButton");
+
 
 
 // unregister widgets 
@@ -199,6 +229,37 @@ function unregister_default_widgets() {
 } 
 add_action('widgets_init', 'unregister_default_widgets', 11);
 
+// create button shortcode
+function btnshortcode( $atts, $content = null ) {
+   ob_start();
+   echo '<a class="secondary tiertiary radius button shortcode-btn" href="">' . do_shortcode($content) . '</a>';
+   ?><script>
+		
+		var featuredBtns = document.getElementsByClassName('shortcode-btn');
+		for(x=0;x<featuredBtns.length;x++) {
+			var thisBtn = featuredBtns[x];	
+			//console.log('the next Sib to the shortcode btn we have added is '+ thisBtn.nextSibling);
+			// lets see what the next sibling node is
+			var nextSibling = thisBtn.nextSibling;
+			if(thisBtn.nextSibling.nodeName=='A'){
+				var nextLink = thisBtn.nextSibling;
+				thisBtn.setAttribute('href',nextLink);	
+				// get the text from nextLink, but it as text in our btn
+				thisBtn.innerHTML = nextLink.innerHTML;
+				// if nextLink has target set to blank, do the same to our new btn
+				if(nextLink.getAttribute('target')=='_blank'){
+					thisBtn.setAttribute('target','_blank');
+				}
+				// now remove nextLink from DOM
+				var parentNode = nextLink.parentElement;
+				parentNode.removeChild(nextLink);
+			} 			
+		}
+		</script><?php
+		$output = ob_get_clean();
+		return $output;
+}
+add_shortcode('button', 'btnshortcode');
 
 
 // deliver responsive images

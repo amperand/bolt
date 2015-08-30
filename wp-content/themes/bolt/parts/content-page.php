@@ -23,21 +23,27 @@
 	        	$fileTitle = get_sub_field('title');
 	        	$file = get_sub_field('file_upload');
 	        	$fileDesc = get_sub_field('file_description');
-	        	echo '<article class="file"><h2>'.$fileTitle.'</h2>'.$fileDesc;
+	        	echo '<article class="file"><h2>'.$fileTitle.'</h2><p>'.$fileDesc.'</p>';
 	        	echo '<a class="secondary tiertiary button radius" href="'.$file.'" target="_blank">View '.$fileTitle.'</a></article>';
-	        elseif(get_row_layout() == 'team_members_block'):
-	        	if(have_rows('team_members'))?>
-					<section class="team-members" data-equalizer>
+	        elseif(get_row_layout() == 'three_column_section'):
+	        	if(have_rows('column_block'))?>
+					<section class="equalizer" data-equalizer="column-watch">
 						<?php 
-						while(have_rows('team_members')): the_row();
+						while(have_rows('column_block')): the_row();
 							$picSrc = get_sub_field('pic');
 							$pic = wp_get_attachment_image($picSrc, 'thumbnail');
-							$name = get_sub_field('name');
-							$lastname = get_sub_field('last_name');
 							$title = get_sub_field('title');
-							$email = get_sub_field('email');
-							$bio = get_sub_field('bio');
-							?><div class="columns medium-4 small-6 member" data-equalizer-watch><?php echo $pic;?><p><strong><?php echo $name;?>&nbsp;<?php echo $lastname;?></strong></br/><i><?php echo $title;?></i><br/><a class="email-member" href="mailto:<?php echo $email;?>" target="_blank">Email <?php echo $name;?></a></p><?php echo $bio;?></div>
+							$text = get_sub_field('text');
+							?>
+							<div class="columns medium-4 small-6 equalizer-kid">
+								<div data-equalizer-watch="column-watch">
+									<?php //if($pic) {echo $pic;}?>
+									<p><strong><?php echo $title;?></strong></p>
+									<?php echo $text;?>
+								</div>
+							</div>
+
+							
 						<?php endwhile;
 					echo '</section>';
 	        elseif( get_row_layout() == 'accordion_block' ): 

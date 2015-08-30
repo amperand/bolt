@@ -29,13 +29,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php $pageID = $post->ID;
-$chat = get_field('chat_button', $pageID);
-$chatCode = 'http://google.com';
-if ($chat) {
-	$chatCode = $chat;
-}
-?>
 <div id="page" class="hfeed site">
 	<div id="wrap">
 	
@@ -45,8 +38,32 @@ if ($chat) {
 
 			<nav id="primary-navigation" class="site-navigation primary-navigation columns medium-9 hide-for-small-only" role="navigation">
 				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', '' ); ?></a>
-				<a class="button radius right" href="<?php echo $chatCode;?>" target="_blank">Chat</a>
+				<a class="button radius right" href="#" style="background:rgba(19,147,207,1);">Chat</a>
 				<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'menu_class' => 'nav-menu right', 'menu_id' => 'primary-menu' ) ); ?>
+			
+		
+		
+		
+		
+		
+<!--
+<span id="phplive_btn_1440701852" onclick="phplive_launch_chat_0(0)" style="color: #0000FF; text-decoration: underline; cursor: pointer;"></span>
+<script type="text/javascript">
+ 
+(function() {
+var phplive_e_1440701852 = document.createElement("script") ;
+phplive_e_1440701852.type = "text/javascript" ;
+phplive_e_1440701852.async = true ;
+phplive_e_1440701852.src = "//www.bolt-express.com/phplive/js/phplive_v2.js.php?v=0|1440701852|0|" ;
+document.getElementById("phplive_btn_1440701852").appendChild( phplive_e_1440701852 ) ;
+})() ; 
+</script>
+-->
+
+
+
+
+
 			</nav>
 			<button class="menu-toggle hide-for-medium-up"><img src="<?php bloginfo('stylesheet_directory');?>/img/menu-toggle.png" alt="Menu Toggle"/></button>
 		</section>
