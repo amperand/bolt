@@ -38,12 +38,12 @@
 #content-sidebar {
 	.secondary {display:block;text-align:left;padding:0.8em 1em;}
 }
-.single #content-sidebar, .archive #content-sidebar {margin:1em 0 2em;}
+//.single #content-sidebar, .archive #content-sidebar {margin:1em 0 2em;}
 // medium up
 @media only screen and (min-width: 40.0625em) {
-	#content-sidebar {margin-top:4em;}
+	#content-sidebar {margin-top:3.2em;}
 	//.single #content-sidebar, .archive #content-sidebar {margin:4em 0 2em;}
 	.widget {
-		&.relative-pages {position:relative;top:-8em;margin-bottom:-5em;}
+		//&.relative-pages {position:relative;top:-8em;margin-bottom:-5em;}
 	}
 }

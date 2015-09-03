@@ -159,11 +159,11 @@ p.callout {
   .tabs .tab-title > a {
     padding: 1em;
     border-top: 4px solid #1c2f5a;
-    background: #D6D6D6;
     border-radius: 3px 3px 0 0;
     background-clip: padding-box;
     font: 400 18px/20px "Roboto Condensed", sans-serif;
     background: #c8c8c8;
+    background: #1393cf;
     color: #fff;
     text-shadow: -1px -1px 3px #888; }
     .tabs .tab-title > a:hover {
@@ -180,6 +180,7 @@ p.callout {
 .tabs.vertical {
   border-left: 1px solid #dddddd;
   background: #D6D6D6;
+  background: #1393cf;
   padding-bottom: 1000px;
   margin-bottom: -1000px !important; }
   .tabs.vertical .tab-title {
@@ -638,17 +639,9 @@ input[type="submit"] {
   text-align: left;
   padding: 0.8em 1em; }
 
-.single #content-sidebar, .archive #content-sidebar {
-  margin: 1em 0 2em; }
-
 @media only screen and (min-width: 40.0625em) {
   #content-sidebar {
-    margin-top: 4em; }
-
-  .widget.relative-pages {
-    position: relative;
-    top: -8em;
-    margin-bottom: -5em; } }
+    margin-top: 3.2em; } }
 .slideshow .slides > li {
   position: relative;
   display: none;
