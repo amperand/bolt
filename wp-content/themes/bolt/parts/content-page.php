@@ -96,6 +96,7 @@
 			
 		
 		echo '</section>';
-	}?
-*/>
+	}
+*/
+	?>
 </div><!-- .entry-content -->
