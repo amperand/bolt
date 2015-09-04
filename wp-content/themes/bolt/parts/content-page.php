@@ -63,7 +63,7 @@
 	    // no layouts found
 	endif;?>
 	
-	<?php $subPreview = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'post_date', 'sort_order' => 'desc' ) );
+	<?php $subPreview = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
 		//$ti = get_title();
 	if($subPreview) { ?>
 		<section id="tab-container">

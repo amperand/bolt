@@ -78,6 +78,16 @@
 				setMainMargin();
 			});
 			jQuery('iframe').wrap('<div class="iframe-contain"></div>');
+			jQuery('.accordion > li').on('click', function() {
+			  jQuery('li.active').find('.content').slideUp('slow', function() {
+			    jQuery(document).foundation('equalizer', 'reflow');
+			  });
+			  if(!jQuery(this).hasClass('active')) {
+			    jQuery(this).find('.content').slideToggle('slow', function() {
+			      jQuery(document).foundation('equalizer', 'reflow');
+			    });
+			  };
+			});
 		});
 
 

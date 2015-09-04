@@ -1,7 +1,7 @@
 <div id="content-sidebar" class="content-sidebar widget-area columns medium-4" role="complementary">
 	<?php $parent = $post->post_parent;
 	if ($parent) {
-		$mySibs = get_pages( array( 'child_of' => $parent, 'sort_column' => 'post_date', 'sort_order' => 'desc' ) );
+		$mySibs = get_pages( array( 'child_of' => $parent, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
 	if($mySibs) { ?>
 		<article class="widget relative-pages"><ul id="list-pages"><li class="parent"><a href="<?php echo get_permalink($parent);?>"><?php echo get_the_title($parent);?></a></li><?php
 		foreach($mySibs as $page) {
@@ -18,7 +18,7 @@
 	}
 		
 	
-	$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'post_date', 'sort_order' => 'desc' ) );
+	$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
 		//$ti = get_title();
 	if($mypages) { ?>
 		<article class="widget relative-pages"><ul id="list-pages"><li class="parent current"><a href="#"><?php the_title();?></a></li><?php
