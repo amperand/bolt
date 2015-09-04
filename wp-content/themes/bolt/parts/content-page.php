@@ -63,8 +63,9 @@
 	    // no layouts found
 	endif;?>
 	
-	<?php $subPreview = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
-		//$ti = get_title();
+	<?php 
+/*
+	$subPreview = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
 	if($subPreview) { ?>
 		<section id="tab-container">
 			<ul class="tabs vertical show-for-medium-up" data-tab>
@@ -93,27 +94,8 @@
 			}
 			echo '</div>';
 			
-/*
-			echo '<section class="show-for-small-only" id="pages-preview">';
-			foreach($subPreview as $page) {
-				$featuredImage = wp_get_attachment_image(get_field('featured_image', $page->ID), 'thumbnail');
-				$perma = get_permalink($page->ID);
-				$ti = get_the_title($page->ID);
-				$featuredText = get_field('stand_out_text', $page->ID);
-				$text = get_field('parent_page_preview_text', $page->ID);?>
-				<div class="content preview">
-					<div class="columns small-4"><?php echo $featuredImage;?></div>
-					<div class="columns small-8">
-						<h2><?php echo $ti;?></h2>
-						<p class="callout"><?php echo $featuredText;?></p>
-						<?php echo $text;?>
-						<a class="read-more" href="<?php echo $perma;?>">Learn More</a>
-					</div>
-				<?php
-			}
-			echo '</section>';
-*/
 		
 		echo '</section>';
-	}?>
+	}?
+*/>
 </div><!-- .entry-content -->
