@@ -34,9 +34,9 @@
 	
 	<header id="masthead" class="site-header" role="banner">
 		<section class="header-main row">
-			<a class="site-title columns medium-4 small-6" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1><img src="<?php bloginfo('stylesheet_directory');?>/img/bolt-express.png" alt="Bolt Express"></a>
+			<a class="site-title columns medium-3 small-6" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><h1><?php bloginfo( 'name' ); ?></h1><img src="<?php bloginfo('stylesheet_directory');?>/img/bolt-express.png" alt="Bolt Express"></a>
 
-			<nav id="primary-navigation" class="site-navigation primary-navigation columns medium-8 hide-for-small-only" role="navigation">
+			<nav id="primary-navigation" class="site-navigation primary-navigation columns medium-9 hide-for-small-only" role="navigation">
 				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', '' ); ?></a>
 				<a class="button radius right" href="#" style="background:rgba(19,147,207,1);">Chat</a>
 				<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'menu_class' => 'nav-menu right', 'menu_id' => 'primary-menu' ) ); ?>

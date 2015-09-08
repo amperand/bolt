@@ -71,7 +71,7 @@
 		.button {margin-left:0.6em;margin-top:0.1em;padding:0.4em 1.1em;}
 		.nav-menu {
 			li{border-left:1px solid $divide;padding:0.3em 0em;
-				a {padding:0.5em;}
+				a {padding:0.5em 5px;}
 				&:last-child {border-right:1px solid $divide;}
 			}
 		}
@@ -95,7 +95,7 @@
 		.button {margin-left:2em;margin-top:0.7em;padding:0.4em 1.6em;}
 		.nav-menu {
 			li{border-left:1px solid $divide;padding:1em;
-				a {padding:1em;}
+				a {padding:1em 0.6em;}
 				&:last-child {border-right:1px solid $divide;}
 			}
 		}
