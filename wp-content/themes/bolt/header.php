@@ -38,7 +38,19 @@
 
 			<nav id="primary-navigation" class="site-navigation primary-navigation columns medium-9 hide-for-small-only" role="navigation">
 				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', '' ); ?></a>
-				<a class="button radius right" href="#" style="background:rgba(19,147,207,1);">Chat</a>
+<!-- 				<a class="button radius right" href="#" style="background:rgba(19,147,207,1);">Chat</a> -->
+<span id="phplive_btn_1441730106" onclick="phplive_launch_chat_0(0)" style="color: #0000FF; text-decoration: underline; cursor: pointer;" class="right"></span>
+<script type="text/javascript">
+ 
+(function() {
+var phplive_e_1441730106 = document.createElement("script") ;
+phplive_e_1441730106.type = "text/javascript" ;
+phplive_e_1441730106.async = true ;
+phplive_e_1441730106.src = "//www.bolt-express.com/phplive/js/phplive_v2.js.php?v=0|1441730106|0|" ;
+document.getElementById("phplive_btn_1441730106").appendChild( phplive_e_1441730106 ) ;
+})() ;
+ 
+</script>
 				<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'menu_class' => 'nav-menu right', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav>
 			<button class="menu-toggle hide-for-medium-up"><img src="<?php bloginfo('stylesheet_directory');?>/img/menu-toggle.png" alt="Menu Toggle"/></button>
