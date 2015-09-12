@@ -557,6 +557,9 @@ input[type="submit"] {
   input[type="submit"]:hover {
     background-color: rgba(28, 48, 91, 0.6); }
 
+.gform_wrapper input[type="submit"] {
+  background: #1c2f5a; }
+
 .post-excerpt {
   padding-bottom: 2em;
   margin-bottom: 2em;
@@ -573,6 +576,13 @@ input[type="submit"] {
     color: #1c2f5a; }
     .pagination a:hover {
       color: #1393cf; }
+
+.gform_confirmation_wrapper {
+  background: #fff;
+  border: 1px solid #dddddd;
+  padding: 1em; }
+  .gform_confirmation_wrapper .gform_confirmation_message {
+    color: green; }
 
 @media only screen and (min-width: 40.0625em) {
   .entry-header, .page-header {

@@ -8,6 +8,17 @@ function my_custom_login_logo() {
 add_action('login_head', 'my_custom_login_logo');
 
 // load scripts and styles
+
+// change jquery version
+function modify_jquery() {
+    if (!is_admin()) {
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', false, '1.9.1');
+        wp_enqueue_script('jquery');
+    }
+}
+add_action('init', 'modify_jquery');
+
 function wpb_adding_scripts() {	
 	wp_register_script('foundation',get_stylesheet_directory_uri().'/js/foundation.min.js',array('jquery'));
 	wp_register_script('equalizer',get_stylesheet_directory_uri().'/js/foundation/foundation.equalizer.js',array('jquery'));

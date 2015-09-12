@@ -82,13 +82,16 @@ input[type="submit"] {
   transition: all 0.5s ease;
     &:hover {background-color:$blue-hover;}
 }
+.gform_wrapper input[type="submit"] { background: $blue;}
 .post-excerpt {padding-bottom:2em;margin-bottom:2em;border-bottom:1px solid $divide;overflow:hidden;}
 .pagination {margin:5em 0 3em;border-top:1px solid $divide;border-bottom:1px solid $divide;padding:1em 0 3em;display:block;
 	a {color:$blue;
 		&:hover {color:$light-blue;}
 	}
 }
-
+.gform_confirmation_wrapper {background:#fff;border:1px solid $divide;padding:1em;
+	.gform_confirmation_message {color:green;}
+}
 @media only screen and (min-width:40.0625em) {
 	.entry-header, .page-header {margin:4em 0 2em;}
 }
