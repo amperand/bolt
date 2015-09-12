@@ -212,6 +212,22 @@ p.callout {
     content: '';
     background: none; }
 
+/* ACCORDION */
+/*
+.accordion {margin:2em 0 3em;
+	.content p {font-size:100%;}
+}
+.accordion-navigation > a {
+	&:before {content:'+';color: #00a99e;
+    font-size: 24px;
+    left: -1rem;
+    position: relative;
+    font-weight: 400;}
+}
+.accordion-navigation.active > a {
+	&:before {content:'-';}
+}
+*/
 .accordion .accordion-navigation > a, .accordion dd > a {
   border: 1px solid #dddddd;
   border-bottom: none;
@@ -245,10 +261,11 @@ p.callout {
     color: #1393cf;
     content: '-'; }
 
-.accordion .accordion-navigation > .content.active, .accordion dd > .content.active {
+.accordion .accordion-navigation > .content, .accordion dd > .content {
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
-  overflow: hidden; }
+  overflow: hidden;
+  background: #fff; }
 
 .accordion .accordion-navigation li {
   list-style-image: url(../img/bullet.jpg) !important;

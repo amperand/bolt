@@ -48,6 +48,7 @@ jQuery(document).foundation({
 				setMainMargin();
 			});
 			jQuery('iframe').wrap('<div class="iframe-contain"></div>');
+
 			jQuery('.accordion > li').on('click', function() {
 			  jQuery('li.active').find('.content').slideUp('slow', function() {
 			    jQuery(document).foundation('equalizer', 'reflow');
@@ -58,4 +59,6 @@ jQuery(document).foundation({
 			    });
 			  };
 			});
+
+		
 		});

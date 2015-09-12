@@ -27,6 +27,7 @@
 
 
 	<?php wp_footer(); ?>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri();?>/js/actions.js"></script>
 	<!--[if lt IE 9]>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/foundation-8-fix/rem.js"></script>
  	 <![endif]-->
