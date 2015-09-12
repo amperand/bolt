@@ -31,16 +31,22 @@ jQuery(document).foundation({
 					jQuery(slider).find('li').not(thisSlide).removeClass('toLeft');
 				},
 		    });
-		    jQuery('[placeholder]').parents('form').submit(function() {
-			  jQuery(this).find('[placeholder]').each(function() {
-			    var input = $(this);
-			    if (input.val() == input.attr('placeholder')) {
-			      input.val('');
-			    }
-			  })
-			});
 		});
 		jQuery(document).ready(function() {
+			jQuery('[placeholder]').focus(function() {
+			  var input = $(this);
+			  if (input.val() == input.attr('placeholder')) {
+			    input.val('');
+			    input.removeClass('placeholder');
+			  }
+			}).blur(function() {
+			  var input = $(this);
+			  if (input.val() == '' || input.val() == input.attr('placeholder')) {
+			    input.addClass('placeholder');
+			    input.val(input.attr('placeholder'));
+			  }
+			}).blur();
+			
 			jQuery(document).foundation('equalizer', 'reflow');
 			jQuery('.menu-toggle').click(function(){
 				jQuery('.mobile-navigation').toggleClass('active');
