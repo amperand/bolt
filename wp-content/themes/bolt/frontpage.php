@@ -4,7 +4,7 @@
 <?php get_header(); ?>
 
 <?php if(have_rows('billboard')):
-	echo '<div class="row"><section class="flexslider slideshow columns large-12"><ul class="slides" data-equalizer>';
+	echo '<div class="row"><section class="flexslider loading slideshow columns large-12"><ul class="slides" data-equalizer>';
 		while(have_rows('billboard')):the_row();
 			$image = wp_get_attachment_image(get_sub_field('image'), 'billboard');
 			$title = get_sub_field('title');

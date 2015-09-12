@@ -133,6 +133,10 @@ p.callout {color:#54585a;font:300 22px/28px $roboto-reg;margin-bottom:2.4em;}
 	}
 }
 .accordion .accordion-navigation>.content.active, .accordion dd>.content.active {border-left:1px solid $divide;border-right:1px solid $divide;overflow:hidden;}
+
+.accordion .accordion-navigation>.content, .accordion dd>.content {
+	//border-left:1px solid $divide;border-right:1px solid $divide;overflow:hidden;background:#fff;
+}
 .accordion .accordion-navigation li {list-style-image: url(../img/bullet.jpg) !important;margin-left:2em !important;}
     
 @media only screen and (min-width:40.0625em) {

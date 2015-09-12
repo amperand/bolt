@@ -642,6 +642,10 @@ input[type="submit"] {
 @media only screen and (min-width: 40.0625em) {
   #content-sidebar {
     margin-top: 3.2em; } }
+.loading {
+  background: #fff url(../img/loading.gif) no-repeat center center;
+  min-height: 300px; }
+
 .slideshow .slides > li {
   position: relative;
   display: none;
