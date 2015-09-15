@@ -148,7 +148,7 @@ p.callout {color:#54585a;font:300 22px/28px $roboto-reg;margin-bottom:2.4em;}
 	&:before {color:$light-blue;}
 }
 .accordion .accordion-navigation.active {
-	a {color:$light-blue;
+	> a {color:$light-blue;
 		&:before {color:$light-blue;content:'-';}
 	}
 }

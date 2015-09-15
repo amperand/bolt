@@ -255,9 +255,9 @@ p.callout {
   .accordion .accordion-navigation > a:hover:before, .accordion dd > a:hover:before {
     color: #1393cf; }
 
-.accordion .accordion-navigation.active a {
+.accordion .accordion-navigation.active > a {
   color: #1393cf; }
-  .accordion .accordion-navigation.active a:before {
+  .accordion .accordion-navigation.active > a:before {
     color: #1393cf;
     content: '-'; }
 
