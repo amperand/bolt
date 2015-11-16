@@ -18,7 +18,7 @@
 	}
 		
 	
-	$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
+	$mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ,'parent' => $post->ID) );
 		//$ti = get_title();
 	if($mypages) { ?>
 		<article class="widget relative-pages"><ul id="list-pages"><li class="parent current"><a href="#"><?php the_title();?></a></li><?php
