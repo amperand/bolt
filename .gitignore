@@ -27,3 +27,8 @@ wp-content/plugins
 wp-content/uploads
 /readme.html
 /license.txt
+wp-config-dev.php
+wp-config-live.php
+wp-content/ewww
+wp-content/themes/bolt/scss/.sass-cache
+wp-content/themes/bolt/config.codekit
