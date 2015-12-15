@@ -319,6 +319,10 @@ p.callout {
   list-style: none;
   display: inline; }
 
+.chat-btn {
+  position: relative;
+  top: -5px; }
+
 #masthead {
   border-top: 15px solid #1c2f5a;
   position: fixed;
@@ -399,6 +403,7 @@ p.callout {
 @media only screen and (min-width: 40.0625em) {
   #masthead .button {
     margin-left: 0.6em;
+    margin-right: 0.6em;
     margin-top: 0.1em;
     padding: 0.4em 1.1em; }
   #masthead .nav-menu li {
@@ -410,21 +415,27 @@ p.callout {
       border-right: 1px solid #dddddd; } }
 @media only screen and (min-width: 750px) {
   #masthead .button {
-    margin-left: 1em; }
+    margin-left: 1em;
+    margin-right: 1em; }
   #masthead .nav-menu li a {
     padding: 0.5em 1em; } }
 @media only screen and (min-width: 950px) {
   #masthead .button {
-    margin-left: 2em;
     margin-top: 0.7em;
-    padding: 0.4em 1.6em; }
+    padding: 0.4em 1.6em;
+    margin-left: 2em;
+    margin-left: 1em;
+    margin-right: 1em; }
   #masthead .nav-menu li {
     border-left: 1px solid #dddddd;
     padding: 1em; }
     #masthead .nav-menu li a {
       padding: 1em 0.6em; }
     #masthead .nav-menu li:last-child {
-      border-right: 1px solid #dddddd; } }
+      border-right: 1px solid #dddddd; }
+
+  .chat-btn {
+    top: 4px; } }
 .entry-header, .page-header {
   background: #1c2f5a;
   padding: 1em 1.5em;
@@ -619,6 +630,11 @@ input[type="submit"] {
         .widget ul li.current a:hover {
           color: #1c2f5a;
           cursor: default; }
+      .widget ul li.current_page_item a {
+        font-weight: 400 !important; }
+        .widget ul li.current_page_item a:hover {
+          cursor: default;
+          color: #1c2f5a !important; }
   .widget img {
     margin-bottom: 1em; }
   .widget p {

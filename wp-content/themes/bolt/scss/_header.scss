@@ -23,6 +23,7 @@
 		}
 	}
 }
+.chat-btn {position:relative;top:-5px;}
 #masthead {border-top:15px solid $blue;position:fixed;top:0;width:100%;z-index:1000;background:#fff;border-bottom:1px solid $divide;
 	.header-main {padding:1.7em 0;}
 	.nav-menu {margin:0;
@@ -68,7 +69,8 @@
 // medium up
 @media only screen and (min-width: 40.0625em) {
 	#masthead {
-		.button {margin-left:0.6em;margin-top:0.1em;padding:0.4em 1.1em;}
+		.button {margin-left:0.6em;margin-right:0.6em;
+			margin-top:0.1em;padding:0.4em 1.1em;}
 		.nav-menu {
 			li{border-left:1px solid $divide;padding:0.3em 0em;
 				a {padding:0.5em 5px;}
@@ -79,7 +81,7 @@
 }
 @media only screen and (min-width:750px) {
 	#masthead {
-		.button {margin-left:1em;}
+		.button {margin-left:1em;margin-right:1em;}
 		.nav-menu {
 			li{
 				a {padding:0.5em 1em;}
@@ -92,7 +94,10 @@
 //@media only screen and (min-width: 64.0625em) {
 @media only screen and (min-width:950px) {
 	#masthead {
-		.button {margin-left:2em;margin-top:0.7em;padding:0.4em 1.6em;}
+		.button {margin-top:0.7em;padding:0.4em 1.6em;
+			margin-left:2em;
+			margin-left:1em;margin-right:1em;
+		}
 		.nav-menu {
 			li{border-left:1px solid $divide;padding:1em;
 				a {padding:1em 0.6em;}
@@ -100,4 +105,5 @@
 			}
 		}
 	}
+	.chat-btn {top:4px;}
 }

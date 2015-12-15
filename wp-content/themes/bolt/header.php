@@ -39,8 +39,9 @@
 
 			<nav id="primary-navigation" class="site-navigation primary-navigation columns medium-9 hide-for-small-only" role="navigation">
 				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', '' ); ?></a>
-<!-- 				<a class="button radius right" href="#" style="background:rgba(19,147,207,1);">Chat</a> -->
-<span id="phplive_btn_1441730106" onclick="phplive_launch_chat_0(0)" style="color: #0000FF; text-decoration: underline; cursor: pointer;" class="right"></span>
+						
+
+<span id="phplive_btn_1441730106" onclick="phplive_launch_chat_0(0)" style="color: #0000FF; text-decoration: underline; cursor: pointer;" class="right chat-btn"></span>
 <script type="text/javascript">
  
 (function() {
@@ -52,6 +53,13 @@ document.getElementById("phplive_btn_1441730106").appendChild( phplive_e_1441730
 })() ;
  
 </script>
+		<a href="#" data-reveal-id="modal-1" class="button radius secondary right">Track</a>
+		<div id="modal-1" class="reveal-modal" data-reveal aria-labelledby="modalTitle1" aria-hidden="true" role="dialog">
+			<iframe src="http://groundspeedhq.com" frameborder="0" width="100%" height="100%"></iframe>
+		</div>
+			
+			
+			
 				<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'menu_class' => 'nav-menu right', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav>
 			<button class="menu-toggle hide-for-medium-up"><img src="<?php bloginfo('stylesheet_directory');?>/img/menu-toggle.png" alt="Menu Toggle"/></button>

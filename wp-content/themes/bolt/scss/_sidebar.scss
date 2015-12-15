@@ -13,6 +13,9 @@
 				&:before {content:url(../img/arrow-right.png) no-repeat left;margin-right:10px;}
 				&:hover {color:$blue;cursor:default;}
 			}
+			&.current_page_item a {font-weight:400 !important;
+				&:hover {cursor:default; color:$blue !important;}
+			}
 		}
 	}
 	img {margin-bottom:1em;}

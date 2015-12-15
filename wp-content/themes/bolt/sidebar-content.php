@@ -1,20 +1,26 @@
 <div id="content-sidebar" class="content-sidebar widget-area columns medium-4" role="complementary">
 	<?php $parent = $post->post_parent;
 	if ($parent) {
-		$mySibs = get_pages( array( 'child_of' => $parent, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
-	if($mySibs) { ?>
-		<article class="widget relative-pages"><ul id="list-pages"><li class="parent"><a href="<?php echo get_permalink($parent);?>"><?php echo get_the_title($parent);?></a></li><?php
-		foreach($mySibs as $page) {
-			$perma = get_permalink($page->ID);
-			$ti = get_the_title($page->ID);
-			if($page->ID == $post->ID) {
-				echo '<li class="current"><a href="'.$perma.'">'.$ti.'</a></li>';
-			} else {
-				echo '<li><a href="'.$perma.'">'.$ti.'</a></li>';
+		//$mySibs = get_pages( array( 'child_of' => $parent, 'sort_column' => 'menu_order', 'sort_order' => 'asc') );
+		$mySibs = wp_list_pages( array('title_li' => '', 'child_of'=> $parent, 'depth'=>1, 'echo'=>0) );
+		if($mySibs) { ?>
+			<article class="widget relative-pages">
+				<ul id="list-pages">
+					<li class="parent"><a href="<?php echo get_permalink($parent);?>"><?php echo get_the_title($parent);?></a></li>
+			<?php echo $mySibs;
+/*
+			foreach($mySibs as $page) {
+				$perma = get_permalink($page->ID);
+				$ti = get_the_title($page->ID);
+				if($page->ID == $post->ID) {
+					echo '<li class="current"><a href="'.$perma.'">'.$ti.'</a></li>';
+				} else {
+					echo '<li><a href="'.$perma.'">'.$ti.'</a></li>';
+				}
 			}
+*/
+			echo '</ul></article>';
 		}
-		echo '</ul></article>';
-	}
 	}
 		
 	

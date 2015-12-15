@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div id="main-content" class="main-content">
+<div id="main-content" class="main-content"> 
 	<div id="primary" class="content-area row">
 		<div id="content" class="site-content columns medium-8" role="main">
 			<header class="entry-header">
