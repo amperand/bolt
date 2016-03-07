@@ -37,6 +37,7 @@ a {-webkit-transition: all 0.5s ease;
  [class*="column"]+[class*="column"]:last-child {
   float: left;
 }
+.shortcode-btn {color:#fff;}
 
 /* FONTS */
 $roboto-reg:'Roboto', sans-serif;
@@ -112,7 +113,8 @@ p.callout {color:#54585a;font:300 22px/28px $roboto-reg;margin-bottom:2.4em;}
 .tabs-content {
 	padding-bottom:4em;width:80%;float:right;padding:0 2em 2em;
 }
-.tiertiary {background:$blue;font-size:13px !important;padding:0.8em 1.2em;
+.tiertiary {background:$blue;font-size:13px !important;padding:0;
+	a {padding:0.8em 1.2em;display:block;}
 	&:after {content:'';background:none;}
 }
 

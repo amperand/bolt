@@ -1,12 +1,14 @@
 <header class="entry-header">
-	<h1 class="page-title"><?php the_title();?></h1>
-	<?php $subtitle = get_field('sub-title');
+    <h1 class="page-title">
+        <?php the_title();?>
+    </h1>
+    <?php $subtitle = get_field('sub-title');
 	if ($subtitle) {
 		echo '<p>'.$subtitle.'</p>';
 	} ?>
 </header>
 <div class="entry-content">
-	<?php $standOutText = get_field('stand_out_text_header');
+<?php $standOutText = get_field('stand_out_text_header');
 	if ($standOutText) {
 		echo '<p class="callout">'.$standOutText.'</p>';
 	} 
@@ -27,29 +29,26 @@
 	        	echo '<a class="secondary tiertiary button radius" href="'.$file.'" target="_blank">View '.$fileTitle.'</a></article>';
 	        elseif(get_row_layout() == 'three_column_section'):
 	        	if(have_rows('column_block'))?>
-					<section class="equalizer" data-equalizer="column-watch">
-						<?php 
+<section class="equalizer" data-equalizer="column-watch">
+<?php 
 						while(have_rows('column_block')): the_row();
 							$picSrc = get_sub_field('pic');
 							$pic = wp_get_attachment_image($picSrc, 'thumbnail');
 							$title = get_sub_field('title');
 							$text = get_sub_field('text');
 							?>
-							<div class="columns medium-4 small-6 equalizer-kid">
-								<div data-equalizer-watch="column-watch">
-									<?php //if($pic) {echo $pic;}?>
-									<p><strong><?php echo $title;?></strong></p>
-									<?php echo $text;?>
-								</div>
-							</div>
-
-							
-						<?php endwhile;
+<div class="columns medium-4 small-6 equalizer-kid">
+    <div data-equalizer-watch="column-watch">
+        <?php //if($pic) {echo $pic;}?>
+        <p><strong><?php echo $title;?></strong></p>
+        <?php echo $text;?> </div>
+</div>
+<?php endwhile;
 					echo '</section>';
 	        elseif( get_row_layout() == 'accordion_block' ): 
 				if(have_rows('accordion'))?>
-					<ul class="accordion" data-accordion>
-						<?php $i=0;
+<ul class="accordion" data-accordion>
+<?php $i=0;
 						while(have_rows('accordion')): the_row();
 							$title = get_sub_field('accordion_title');
 							$text = get_sub_field('accordion_text');
@@ -62,8 +61,7 @@
 	else :
 	    // no layouts found
 	endif;?>
-	
-	<?php 
+<?php 
 /*
 	$subPreview = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order', 'sort_order' => 'asc' ) );
 	if($subPreview) { ?>
@@ -99,4 +97,5 @@
 	}
 */
 	?>
-</div><!-- .entry-content -->
+</div>
+<!-- .entry-content --> 

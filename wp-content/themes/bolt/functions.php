@@ -152,15 +152,15 @@ class Custom_Text_Link extends WP_Widget {
 		$btnStyle = get_field('choose_button_style', $widget_id);
 		$linkText = get_field('link_text', $widget_id);
 		$link = get_field('link', $widget_id);?>
-		<article class="widget title-text-pic" id="<?php echo $widget_id;?>">
-			<?php if($title) { echo '<h3 class="widget-title">'.$title.'</h3>';}
+<article class="widget title-text-pic" id="<?php echo $widget_id;?>">
+    <?php if($title) { echo '<h3 class="widget-title">'.$title.'</h3>';}
 			if($imageSrc) {echo $image;}
 			if($text) {echo $text;}
 			if($useLink == "Yes") {
 				echo '<a class="'.$btnStyle.'" href="'.$link.'">'.$linkText.'</a>';
 			} ?>
-		</article>
- 	<?php }
+</article>
+<?php }
 }
 register_widget("Custom_Text_Link");
 
@@ -177,8 +177,8 @@ class BigButton extends WP_Widget {
 	}
 	function widget($args, $instance) {
 		$widget_id = "widget_" . $args["widget_id"];?>
-		<article class="widget secondary-button" id="<?php echo $widget_id;?>">
-			<?php $title = get_field('widget_title',$widget_id);
+<article class="widget secondary-button" id="<?php echo $widget_id;?>">
+    <?php $title = get_field('widget_title',$widget_id);
 			if($title) {
 				echo '<h3 class="widget-title">'.$title.'</h3>';
 			}
@@ -206,8 +206,8 @@ class BigButton extends WP_Widget {
 				}
 				$o++;		
 			endwhile;?>
-		</article>
- 	<?php }
+</article>
+<?php }
 }
 register_widget("BigButton");
 
@@ -226,37 +226,33 @@ function unregister_default_widgets() {
 add_action('widgets_init', 'unregister_default_widgets', 11);
 
 // create button shortcode
+// create button shortcode
+$addBtnId = 0;
 function btnshortcode( $atts, $content = null ) {
-   ob_start();
-   echo '<a class="secondary tiertiary radius button shortcode-btn" href="">' . do_shortcode($content) . '</a>';
-   ?><script>
-		
-		var featuredBtns = document.getElementsByClassName('shortcode-btn');
-		for(x=0;x<featuredBtns.length;x++) {
-			var thisBtn = featuredBtns[x];	
-			//console.log('the next Sib to the shortcode btn we have added is '+ thisBtn.nextSibling);
-			// lets see what the next sibling node is
-			var nextSibling = thisBtn.nextSibling;
-			if(thisBtn.nextSibling.nodeName=='A'){
-				var nextLink = thisBtn.nextSibling;
-				thisBtn.setAttribute('href',nextLink);	
-				// get the text from nextLink, but it as text in our btn
-				thisBtn.innerHTML = nextLink.innerHTML;
-				// if nextLink has target set to blank, do the same to our new btn
-				if(nextLink.getAttribute('target')=='_blank'){
-					thisBtn.setAttribute('target','_blank');
-				}
-				// now remove nextLink from DOM
-				var parentNode = nextLink.parentElement;
-				parentNode.removeChild(nextLink);
-			} 			
+	 ob_start();
+   global $addBtnId;
+  echo '<div class="secondary tiertiary radius button shortcode-btn" id="shortbtn-'.$addBtnId.'"></div>';
+  //echo do_shortcode($content);
+   ?>
+<script type="text/javascript">
+	    var myButton = '<?php echo $content;?>';
+	    var btnText = myButton.match(/>([^<]*)/)[1];
+		var href =myButton.match(/href="([^"]*)/)[1];
+		var btnId = '<?php echo $addBtnId;?>';
+		var hasTarget = myButton.indexOf('target')>-1;
+		if (hasTarget ==false) {
+			var target = '';	
+		} else {
+			var target = myButton.match(/target="([^"]*)/)[1]; 
 		}
-		</script><?php
-		$output = ob_get_clean();
+		document.getElementById('shortbtn-'+btnId).innerHTML += '<a href="'+href+'" class="shortcode-btn" target="'+target+'">'+btnText+'</a>';
+
+		</script>
+<?php $addBtnId++;
+			$output = ob_get_clean();
 		return $output;
 }
 add_shortcode('button', 'btnshortcode');
-
 
 // deliver responsive images
 function custom_theme_setup() {

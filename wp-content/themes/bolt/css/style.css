@@ -57,6 +57,9 @@ a {
 [class*="column"] + [class*="column"]:last-child {
   float: left; }
 
+.shortcode-btn {
+  color: #fff; }
+
 /* FONTS */
 h1, h2 {
   font-family: "Roboto", sans-serif;
@@ -207,7 +210,10 @@ p.callout {
 .tiertiary {
   background: #1c2f5a;
   font-size: 13px !important;
-  padding: 0.8em 1.2em; }
+  padding: 0; }
+  .tiertiary a {
+    padding: 0.8em 1.2em;
+    display: block; }
   .tiertiary:after {
     content: '';
     background: none; }
@@ -398,6 +404,10 @@ p.callout {
         padding: 0 6px; }
   #colophon .nav-menu a:hover {
     rgba: 255, 255, 255, 0.7; }
+#colophon .socials li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 8px; }
 
 /* END HEADER */
 @media only screen and (min-width: 40.0625em) {

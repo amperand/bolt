@@ -1,21 +1,25 @@
 <?php get_header(); ?>
 
 <div id="main-content" class="main-content">
-	<div id="primary" class="content-area row">
-		<?php $featuredImage = wp_get_attachment_image(get_field('featured_image'), 'featuredImage');
+    <div id="primary" class="content-area row">
+        <?php $featuredImage = wp_get_attachment_image(get_field('featured_image'), 'featuredImage');
 		if($featuredImage) {
 			echo '<div class="columns large-12">'.$featuredImage.'</div>';
 		}?>
-		<div id="content" class="site-content columns medium-8" role="main">
-			<?php
+        <div id="content" class="site-content columns medium-8" role="main">
+            <?php
 				while ( have_posts() ) : the_post();
 					include('parts/content-single.php');
 				endwhile;
 				include("parts/pagination.php");
 			?>
-		</div><!-- #content -->
-		<?php get_sidebar('content'); ?>
-	</div><!-- #primary -->
-</div><!-- #main-content -->
+        </div>
+        <!-- #content -->
+        <?php get_sidebar('content'); ?>
+    </div>
+    <!-- #primary --> 
+</div>
+<!-- #main-content -->
 
 <?php get_footer();
+
