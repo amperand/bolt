@@ -40,7 +40,7 @@
             <?php bloginfo( 'name' ); ?>
         </h1>
         <img src="<?php bloginfo('stylesheet_directory');?>/img/bolt-express.png" alt="Bolt Express"></a>
-        <nav id="primary-navigation" class="site-navigation primary-navigation columns medium-9 hide-for-small-only" role="navigation"> <a class="screen-reader-text skip-link" href="#content">
+        <nav id="primary-navigation" class="site-navigation primary-navigation columns medium-9 hide-for-small-only hide-for-medium-only" role="navigation"> <a class="screen-reader-text skip-link" href="#content">
             <?php _e( 'Skip to content', '' ); ?>
             </a> <span id="phplive_btn_1441730106" onclick="phplive_launch_chat_0(0)" style="color: #0000FF; text-decoration: underline; cursor: pointer;" class="right chat-btn"></span> 
             <script type="text/javascript">
@@ -60,10 +60,10 @@ document.getElementById("phplive_btn_1441730106").appendChild( phplive_e_1441730
             </div>
             <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'menu_class' => 'nav-menu right', 'menu_id' => 'primary-menu' ) ); ?>
         </nav>
-        <button class="menu-toggle hide-for-medium-up"><img src="<?php bloginfo('stylesheet_directory');?>/img/menu-toggle.png" alt="Menu Toggle"/></button>
+        <button class="menu-toggle hide-for-large-up"><img src="<?php bloginfo('stylesheet_directory');?>/img/menu-toggle.png" alt="Menu Toggle"/></button>
     </section>
     <section class="row">
-        <nav id="mobile-navigation" class="site-navigation mobile-navigation columns small-12 small-collapse hide-for-medium-up" role="navigation">
+        <nav id="mobile-navigation" class="site-navigation mobile-navigation columns small-12 small-collapse hide-for-large-up" role="navigation">
             <?php wp_nav_menu( array( 'theme_location' =>'main-menu', 'container' => false, 'menu_class' => 'nav-menu', 'menu_id' => 'mobile-menu')); ?>
         </nav>
     </section>

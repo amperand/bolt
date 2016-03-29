@@ -41,7 +41,7 @@
 #mobile-navigation {padding-left:0;padding-right:0;
 	.nav-menu {display:none;margin:0;padding:0;
 		li {margin:0;display:block;
-			a {display:block;padding:1em 0;text-align:center;background:$blue;color:#fff;
+			a {display:block;padding:1em 0;text-align:center;background:$blue;color:#fff;font-size:1.2em;
 				&:hover {background:$blue-hover;color:#fff;}
 			}
 		}
@@ -76,12 +76,14 @@
 	#masthead {
 		.button {margin-left:0.6em;margin-right:0.6em;
 			margin-top:0.1em;padding:0.4em 1.1em;}
+/*
 		.nav-menu {
 			li{border-left:1px solid $divide;padding:0.3em 0em;
 				a {padding:0.5em 5px;}
 				&:last-child {border-right:1px solid $divide;}
 			}
 		}
+*/
 	}
 }
 @media only screen and (min-width:750px) {
@@ -89,15 +91,17 @@
 		.button {margin-left:1em;margin-right:1em;}
 		.nav-menu {
 			li{
-				a {padding:0.5em 1em;}
+				//a {padding:0.5em 1em;}
 			}
 		}
+		#mobile-menu li a {font-size:1.2em;}
 	}
+	
 }
 
 
-//@media only screen and (min-width: 64.0625em) {
-@media only screen and (min-width:950px) {
+@media only screen and (min-width: 64.0625em) {
+//@media only screen and (min-width:950px) {
 	#masthead {
 		.button {margin-top:0.7em;padding:0.4em 1.6em;
 			margin-left:2em;
